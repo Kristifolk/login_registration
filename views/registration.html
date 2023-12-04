@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="registrationForm" action="../controllers/registration.php" method="POST"> <!-- перезагрузка страницы -->
+        <label for="name">Имя:</label>
+        <input type="text" name="name" id="name"  placeholder="Кристина"><br><br>
+
+        <label for="tel">Телефон:</label>
+        <input type="tel" name="tel" id="tel" required placeholder="89289999999"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"required placeholder="test@test.ru"><br><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" id="password"required placeholder="Пароль"><br><br>
+
+        <label for="confirm_password">Повторите пароль:</label>
+        <input type="password" name="confirm_password" id="confirm_password"required placeholder="Пароль"><br><br>
+        
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    <div class="error"></div>
+
+    <!-- <script>
+        $(document).ready(function() {
+            $('#registrationForm').submit(function(e) {
+                e.preventDefault(); // Отмена отправки формы по умолчанию
+
+                // Получаем значения полей формы
+                var name = $('#name').val();
+                var tel = $('#tel').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
+                var confirmPassword = $('#confirm-password').val();
+
+
+                if (password !== confirmPassword) {
+                    alert('Пароль и подтверждение пароля не совпадают');
+                    return;
+                }
+
+                // Создаем объект с данными для отправки
+                var data = {
+                    name: name,
+                    tel: tel,
+                    email: email,
+                    password: password,
+                    confirmPassword: confirmPassword
+                };
+
+                // Отправляем AJAX-запрос на файл registration.php
+                $.ajax({
+                    type: 'POST',
+                    url: '/controllers/registration.php',
+                    data: data,
+                    success: function(response) {
+                        $('.error').append(response);
+                        $('.error').css('background-color', 'red'); 
+                    },
+                });
+
+                
+            });
+        });
+    </script> -->
+
+</body>
+</html>

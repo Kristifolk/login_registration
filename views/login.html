@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- КАПЧА <script src="https://www.google.com/recaptcha/api.js?render=ВАШ_КЛЮЧ_API"></script>
+        -->
+</head>
+<body>
+    <h1>Вход</h1>
+    <form id="loginForm" action="../controllers/login.php" method="POST"> <!-- перезагрузка страницы -->
+        <label for="login">Введите логин:</label>
+        <input type="text" id="login" name="login" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}|[0-9]{10,12}" placeholder="89289999999 или test@test.ru"><br><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required placeholder="Пароль"><br><br>
+
+        <input type="submit" value="Войти">
+        <!-- КАПЧА 
+         <div class="g-recaptcha" data-sitekey="ВАШ_КЛЮЧ_API"></div>
+        -->
+       
+    </form>
+
+    <!-- <script>
+        $(document).ready(function() {
+            $('#loginForm').submit(function(e) {
+                e.preventDefault(); // Отменяем отправку формы по умолчанию
+
+                // Получаем значения полей формы
+                var login = $('#login').val();
+                var password = $('#password').val();
+
+                // Создаем объект с данными для отправки
+                var data = {
+                    login: login,
+                    password: password
+                };
+
+                // Отправляем AJAX-запрос на файл login.php
+                $.ajax({
+                    type: 'POST',
+                    url: 'login.php',
+                    data: data,
+                    success: function(response) {
+                        // Обработка успешного ответа от сервера
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        // Обработка ошибки
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>
